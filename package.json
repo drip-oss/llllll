@@ -1,8 +1,7 @@
 {
-  "name": "genes-platform-token",
+  "name": "llllll",
   "version": "1.0.0",
-  "description": "genes-platform-token",
-  "main": "truffle-config.js",
+  "description": "|||||| (or llllll ) is a smart contract based cryptocurrency that anyone can generate and use on DApps.",
   "directories": {
     "test": "test"
   },
@@ -27,8 +26,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.drecom.jp:10022/simply/genes-platform-token.git"
+    "url": "https://github.com/drip-oss/llllll.git"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "DRIP <drip@drecom.co.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drip-oss/llllll/issues"
+  },
+  "homepage": "https://6-pillars.ooo/",
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "contracts",
+    "erc721"
+  ]
 }
