@@ -1,32 +1,33 @@
 [<img src="logo.png" alt="|||||| 6 pillars" width=50% />](https://6-pillars.ooo)
 
-[||||||](https://6-pillars.ooo)  is a smart contract based cryptocurrency that anyone can generate and use on DApps.
+[||||||](https://6-pillars.ooo) は DApps をまたいで利用可能なトークンを誰でも生成できる、Ethereum 上で動作するスマートコントラクトです。
+生成されたトークンには不変なデータが明記され、開発者がそれを使いトークンの振る舞いを決定する事で、ある DApps 上では価値がなかったものが、他の DApps 上では価値が高いものとして扱われるなど、トークンの価値が絶対価値から相対価値になります。
 
-日本語は[こちら](README.ja.md).
+English is [here](README.md).
 
-# Unique Features
+# 特徴
 
-* |||||| is don't have any Ownable as the contract deployer.
-* Token has two data.
-  * inscription : immutable uint256 parameter that can be specified when minting.
-  * creator : address of token creator.
-* DApps developers can set service specific data for `inscription` when minting a token.
-* DApps developers can be used any token minting by other DApps, and can freely set rules to the token.
-  * mainly can use `creator` and` inscription`.
+* |||||| はコントラクトデプロイヤーという意味での一切の Ownable を持たない。
+* トークンは2つのデータを持っている。
+  * inscription : 発行時に指定できる不変な uint256 パラメータ
+  * creator : トークンの発行元アドレス
+* DApps 開発者はトークン発行時、 `inscription` にサービス特有のデータを設定できる。
+* DApps 開発者は一定のルールを自由に設け、他の DApps 等で発行されたトークンを自身の DApps 内で使用させる事ができる。
+  * 主に `creator` と `inscription` に対するルール付け。
 
-# Install
+# インストール
 
 ```
 npm install llllll
 ```
 
-# Usage
+# 使い方
 
-## development
+## 開発
 
 ### contract
 
-If DApps developers create the following contract, can minting a token with contract address as `creator`.
+DApps 開発者が以下のようなコントラクトを準備すれば、そのコントラクトアドレスを `creator` として持つトークンが生成できます。
 
 ```
 pragma solidity ^0.4.24;
@@ -44,7 +45,7 @@ contract DappsContract {
 
 ### migration
 
-The developer must create following truffle migration file, for deploy to local chain at development.
+開発時は |||||| をローカルチェーンにデプロイする必要があるため、以下の truffle migration ファイルが必要になります。
 
 ```
 const SixPillars = artifacts.require("SixPillars");
@@ -78,10 +79,10 @@ contract('DappsContract', function(accounts) {
 })
 ```
 
-## deploy
+## デプロイ
 
-Don't deploy |||||| yourself, please use `deployed/contracts/SixPillars.json`.
-Contract address is as follows.
+|||||| はご自身でデプロイせず `deployed/contracts/SixPillars.json` をご利用ください。
+コントラクトアドレスは以下の通りです。
 
 * Mainnet
   * 0x9895960B93e314ef221346Ab985b895da9a5B7d5
@@ -92,7 +93,7 @@ Contract address is as follows.
 * Rinkeby
   * 0x542A900357c9638AD6e944a57072c5D01f1C1Ea7
 
-# Reference
+# リファレンス
 
 ```
 /// This emits when minted new token.
@@ -229,35 +230,34 @@ function balanceOfOwnerAndCreator(address _owner, address _creator) external vie
 function tokenOfOwnerAndCreatorByIndex(address _owner, address _creator, uint256 _index) external view returns (uint256);
 ```
 
-It also has the following interfaces.
+また、以下のインターフェイスを備えています。
 
 * ERC165
 * ERC721
 
-# Background
+# 開発背景
 
-Non-Fungible Token used on DApps such as "ERC721" can easily be transferred or exchanged between users, but the DApps admin team holds the authority of publishing and deleting currencies.
-Thus the service itself is quite known and centralized because of the above reason.
+ERC721 を初めとした DApps で使われている Non-Fungible トークンは、移行や売買はユーザー同士で可能ですが、発行や破棄は DApps 運営主体が握っており、従来の中央集権的サービスに近い形をとっています。
 
-So we thought it might be interesting to have de-centralized digital currency which can be published and deleted by the users themselves, and token data values can be added by changing parameters.
-Moreover, the currencies can be used over any DApps and the same token may have different values depends on the transferred environment, DApps.
-We strongly believe in our new concepts and free Non-Fungible token which may broaden the world of current token economy.
+またそのトークンは、発行した DApps 内でしか価値を発揮できないものがほとんどです。
+
+そんな中で、発行や破棄すらもユーザー自身で可能な、かつトークンの持つデータは改竄不可能な、そしてどんな DApps でも利用でき、それぞれの DApps で価値が変化する、より柔軟で自由なNon-Fungibleトークンがあれば、既存の DApps が提唱するトークンエコノミーよりも広い世界を創れるのではないか、という想いから開発しました。
 
 # FAQ
 
-### Q. Do I need to deploy ||||||-contract by myself ?
+### Q. |||||| コントラクトは自身でデプロイする必要がありますか？
 
-Regarding use on Mainnet and any Testnet, we already deployed to the address mentioned above, so you don't need to deploy by yourself.
+メインネットおよび各種テストネットでの利用に関しては、上記記載のアドレスに対して既にデプロイしてありますので、ご自身でデプロイする必要はありません。
+開発環境においてはローカルで動作しているネットワークに対してデプロイした方が、開発しやすいかと思います。
 
-### Q. Is it easier to development DApps with |||||| ?
+### Q. |||||| コントラクトを使うと DApps 作成が楽になりますか？
 
-|||||| is implemented as ERC721, if you create a contract like the above usage, you can immediately use what works as a standard ERC 721 token.
+ERC721 として一通りの機能が実装されているので、上記使い方にあるようなコントラクトを作成していただければ、標準の ERC721 トークンとして動作するものをすぐに利用可能です。
 
-### Q. Can I limit the amount of token ?
+### Q. トークンの発行量を制限したいのですが、可能ですか？
 
-Yes.
-For that, you need to prepare your own Smart Contract.
-The following code is conceivable.
+はい、可能です。
+そのためには独自のスマートコントラクトを準備する必要があります。以下のようなコードが考えられます。
 
 ```
 pragma solidity ^0.4.24;
@@ -281,18 +281,18 @@ contract DappsContract {
 }
 ```
 
-### Q. My DApps don't want to use any tokens with unintended parameter...
+### Q. こちらの意図しないパラメータを持つトークンは DApps 内で使わせたくないのですが...
 
-You can block all tokens of minted by other DApps, for you don't want to use tokens with unintended parameter.
-However, since users can not use the tokens created by other DApps, there is a danger of damaging the charm of your DApps.
+ご自身の DApps から発行されたトークン以外は使えないようにすれば、意図しないパラメータを持つトークンをブロックできます。
+ただしユーザーにとっては他の DApps で作ったトークンを使えないため、あなたの DApps が持つ魅力を損なう恐れがあります。
 
-### Q. I'd like users to sent a token minting transaction. Can I this?
+### Q. ユーザーに直接 |||||| に対してトークン発行トランザクションを送信して欲しいのですが、可能ですか？
 
-Ask the user to issue the `_isSetCreator` of `mint` method as `false`, and later you can grant the appropriate `creator` if you call the `createdBy` method on that token.
+ユーザーには `mint` メソッドの `_isSetCreator` を `false` として発行してもらい、後からあなたがそのトークンに対して `createdBy` メソッドを呼び出せば適切な `creator` を付与できます。
 
-# Contact
+# お問い合わせ
 
-Please use the contact form on the [official page](https://6-pillars.ooo).
+[公式ページ](https://6-pillars.ooo)のお問い合わせフォームをご利用ください。
 
-# License
-This software is released under the MIT License, see [LICENSE](LICENSE).
+# ライセンス
+このソフトウェアはMITライセンスのもとで公開されています。詳しくは[LICENSE](LICENSE)をご覧ください。
