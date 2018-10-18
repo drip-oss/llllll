@@ -14,6 +14,18 @@
 * DApps developers can be used any token minting by other DApps, and can freely set rules to the token.
   * mainly can use `creator` and` inscription`.
 
+# Samples
+
+### BandStar
+
+* WebPage - https://drip-samples.github.io/llllll-sample-bandstar/
+* Github - https://github.com/drip-samples/llllll-sample-bandstar/
+
+### Dragon
+
+* WebPage - https://drip-samples.github.io/llllll-sample-dragons/
+* Github - https://github.com/drip-samples/llllll-sample-dragons/
+
 # Install
 
 ```
