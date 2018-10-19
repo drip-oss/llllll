@@ -97,13 +97,13 @@ contract('DappsContract', function(accounts) {
 コントラクトアドレスは以下の通りです。
 
 * Mainnet
-  * 0x9895960B93e314ef221346Ab985b895da9a5B7d5
+  * [0x9895960B93e314ef221346Ab985b895da9a5B7d5](https://etherscan.io/address/0x9895960B93e314ef221346Ab985b895da9a5B7d5)
 * Ropsten
-  * 0x9895960b93e314ef221346ab985b895da9a5b7d5
-* Kovan
-  * 0x542A900357c9638AD6e944a57072c5D01f1C1Ea7
+  - [0x9895960b93e314ef221346ab985b895da9a5b7d5](https://ropsten.etherscan.io/address/0x9895960b93e314ef221346ab985b895da9a5b7d5)
 * Rinkeby
-  * 0x542A900357c9638AD6e944a57072c5D01f1C1Ea7
+  * [0x542A900357c9638AD6e944a57072c5D01f1C1Ea7](https://rinkeby.etherscan.io/address/0x542A900357c9638AD6e944a57072c5D01f1C1Ea7)
+* Kovan
+  * [0x542A900357c9638AD6e944a57072c5D01f1C1Ea7](https://kovan.etherscan.io/address/0x542A900357c9638AD6e944a57072c5D01f1C1Ea7)
 
 # リファレンス
 
